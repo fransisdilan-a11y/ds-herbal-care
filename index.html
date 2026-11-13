@@ -3,258 +3,297 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DS Herbal Care - Spirulina Soap</title>
+    <title>Spirulina Products Showcase - DS Herbal Care</title>
     <style>
         :root {
             --primary-green: #1b4d3e;
-            --accent-gold: #d4af37;
-            --light-bg: #f4f6f4;
+            --light-green: #e8f5e9;
+            --accent-gold: #c5a059;
             --text-dark: #333333;
             --white: #ffffff;
         }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+        * {
             margin: 0;
             padding: 0;
-            background-color: var(--light-bg);
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f9f4;
             color: var(--text-dark);
-            text-align: center;
+            line-height: 1.6;
         }
+
         header {
-            background: linear-gradient(135deg, #1b4d3e, #0f2e24);
+            background: linear-gradient(135deg, var(--primary-green), #2e7d32);
             color: var(--white);
-            padding: 2rem 1rem;
-            border-bottom: 5px solid var(--accent-gold);
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            color: var(--accent-gold);
-            letter-spacing: 1px;
-        }
-        header p {
-            margin-top: 0.5rem;
-            font-size: 1.2rem;
-            font-style: italic;
-            color: #e2e8f0;
-        }
-        /* Language Switcher */
-        .lang-bar {
-            background-color: #0f2e24;
-            padding: 10px;
             text-align: center;
-            border-bottom: 2px solid var(--accent-gold);
+            padding: 2.5rem 1rem;
         }
-        .lang-btn {
-            background-color: transparent;
-            color: var(--accent-gold);
-            border: 1px solid var(--accent-gold);
-            padding: 5px 15px;
-            margin: 0 5px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: 0.3s;
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
         }
-        .lang-btn:hover, .lang-btn.active {
-            background-color: var(--accent-gold);
-            color: var(--primary-green);
+
+        header p {
+            font-size: 1.2rem;
+            color: #dcedc8;
         }
+
         .container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 2rem auto;
             padding: 0 1rem;
         }
-        .banner-card {
-            background: var(--white);
-            padding: 1.5rem;
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
-            border: 2px solid var(--accent-gold);
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
         }
-        .banner-img {
-            width: 100%;
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            margin-top: 1rem;
-        }
-        .info-box {
+
+        .product-card {
             background: var(--white);
-            padding: 2rem;
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            margin-bottom: 2rem;
-            text-align: right;
-            line-height: 1.8;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            border-top: 5px solid var(--primary-green);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
-        .info-box h3 {
-            color: var(--primary-green);
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-header {
+            background: var(--light-green);
+            padding: 1.5rem;
             text-align: center;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            border-bottom: 1px solid #c8e6c9;
         }
-        .info-box ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .info-box li {
-            padding: 8px 0;
-            border-bottom: 1px solid #eee;
-            font-size: 1.1rem;
-        }
-        .lang-section {
-            display: none;
-        }
-        .lang-section.active {
-            display: block;
-        }
-        .footer {
-            background-color: var(--primary-green);
-            color: var(--white);
-            padding: 2rem;
-            margin-top: 3rem;
-            font-size: 1.1rem;
-            border-top: 4px solid var(--accent-gold);
-        }
-        .contact-btn {
-            display: inline-block;
-            background-color: var(--accent-gold);
+
+        .product-header h2 {
             color: var(--primary-green);
-            padding: 0.8rem 2rem;
-            border-radius: 30px;
+            font-size: 1.8rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .badge {
+            background: var(--accent-gold);
+            color: var(--white);
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
             font-weight: bold;
-            text-decoration: none;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+
+        .product-body {
+            padding: 1.5rem;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            color: var(--primary-green);
+            margin: 1rem 0 0.5rem 0;
+            border-bottom: 2px solid var(--light-green);
+            padding-bottom: 0.3rem;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            padding: 0.3rem 0;
+            position: relative;
+            padding-left: 1.2rem;
+            font-size: 0.95rem;
+        }
+
+        ul li::before {
+            content: "✔";
+            color: #2e7d32;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .details-box {
+            background: #fafafa;
+            padding: 0.8rem;
+            border-radius: 6px;
             margin-top: 1rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            font-size: 0.9rem;
+            border-left: 4px solid var(--accent-gold);
+        }
+
+        .price-weight {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--primary-green);
+            color: var(--white);
+            padding: 1rem 1.5rem;
+            font-weight: bold;
+        }
+
+        .price-weight span {
+            font-size: 1.3rem;
+            color: #ffd54f;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #112d23;
+            color: var(--white);
+            margin-top: 3rem;
+        }
+
+        footer p {
+            margin: 0.3rem 0;
+            font-size: 0.95rem;
         }
     </style>
 </head>
 <body>
 
-    <!-- மொழி தேர்வு பகுதி (Language Switcher Bar) -->
-    <div class="lang-bar">
-        <button class="lang-btn active" onclick="switchLang('ta')">தமிழ்</button>
-        <button class="lang-btn" onclick="switchLang('en')">English</button>
-        <button class="lang-btn" onclick="switchLang('si')">සිංහල</button>
-    </div>
-
     <header>
         <h1>DS Herbal Care</h1>
-        <p>Nature's Beauty, Naturally!</p>
+        <p>இயற்கையின் அழகு, இயற்கையான முறையில்! (Nature's Beauty, Naturally!)</p>
     </header>
 
     <div class="container">
+        <div class="product-grid">
 
-        <!-- ================= TAMIL SECTION ================= -->
-        <div id="lang-ta" class="lang-section active">
-            <div class="banner-card">
-                <h2 style="color: var(--primary-green); margin-top: 0;">இயற்கையின் பேராற்றல் கொண்ட</h2>
-                <h3 style="color: var(--accent-gold); font-size: 1.8rem; margin-top: -10px;">ஸ்பிரூலினா மூலிகை சோப்பு (50g - 590/=)</h3>
-                <img src="IMG-20261111-WA0010.jpg" alt="Spirulina Soap Poster 1" class="banner-img">
-                <img src="IMG-20261112-WA0093.jpg" alt="Spirulina Soap Poster 2" class="banner-img">
+            <!-- 1. Spirulina Soap -->
+            <div class="product-card">
+                <div>
+                    <div class="product-header">
+                        <h2>Spirulina Soap</h2>
+                        <p>DS Herbal Care</p>
+                        <span class="badge">100% Natural</span>
+                    </div>
+                    <div class="product-body">
+                        <p style="font-size: 0.95rem; margin-bottom: 1rem;">A natural herbal soap enriched with the goodness of Spirulina, specially formulated to gently cleanse the skin and remove impurities.</p>
+                        
+                        <h3 class="section-title">Ingredients (மூலப்பொருட்கள்):</h3>
+                        <ul>
+                            <li><strong>Spirulina Powder:</strong> Naturally occurring antioxidant compounds.</li>
+                            <li><strong>Multani Mitti Powder:</strong> Absorbs excess surface oil & cleanses.</li>
+                            <li><strong>Tea Tree Essential Oil:</strong> Cleansing properties.</li>
+                            <li><strong>Lavender Essential Oil:</strong> Adds gentle herbal fragrance.</li>
+                        </ul>
+
+                        <h3 class="section-title">Product Benefits (பயன்கள்):</h3>
+                        <ul>
+                            <li>Deep cleansing for healthy skin.</li>
+                            <li>Helps remove excess oil and surface impurities.</li>
+                            <li>Moisturizes & nourishes, maintains soft skin feel.</li>
+                            <li>Helps prevent acne & blemishes.</li>
+                        </ul>
+
+                        <div class="details-box">
+                            <p><strong>Directions:</strong> Wet skin, work soap into a lather, apply gently, and rinse thoroughly.</p>
+                            <p style="margin-top: 5px;"><strong>Batch No:</strong> 1111 | <strong>Mfg:</strong> 11 Nov 2026 | <strong>Exp:</strong> 10 May 2027</p>
+                            <p style="margin-top: 5px;"><strong>Contact:</strong> 0766119060 | dshrbalcare@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="price-weight">
+                    <div>Net Weight: 50 g</div>
+                    <span>590/=</span>
+                </div>
             </div>
 
-            <div class="info-box" style="text-align: right;">
-                <h3>🌱 முக்கிய மூலப்பொருட்கள்</h3>
-                <ul>
-                    <li><strong>ஸ்பிரூலினா பவுடர் (Spirulina Powder):</strong> சருமத்திற்குத் தேவையான ஊட்டச்சத்துக்களை வழங்கி பொலிவாக்கும்.</li>
-                    <li><strong>முல்தானி மிட்டி (Multani Mitti):</strong> அதிகப்படியான எண்ணெய் மற்றும் அழுக்குகளை நீக்கும்.</li>
-                    <li><strong>டீ ட்ரீ எஸன்ஷியல் ஆயில் (Tea Tree Oil):</strong> பருக்கள் மற்றும் கரும் புள்ளிகளைக் குறைக்க உதவும்.</li>
-                    <li><strong>லாவெண்டர் எஸன்ஷியல் ஆயில் (Lavender Oil):</strong> சருமத்தை மென்மையாகவும் மிருதுவாகவும் மாற்றும்.</li>
-                </ul>
+            <!-- 2. Spirulina Face Mask -->
+            <div class="product-card">
+                <div>
+                    <div class="product-header">
+                        <h2>Spirulina Face Mask</h2>
+                        <p>Nature's Touch For Your Skin</p>
+                        <span class="badge">Chemical Free</span>
+                    </div>
+                    <div class="product-body">
+                        <p style="font-size: 0.95rem; margin-bottom: 1rem;">இயற்கையின் அருமை... உங்கள் முகத்தின் அழகிற்காக உருவாக்கப்பட்ட மூலிகை மாஸ்க்.</p>
+                        
+                        <h3 class="section-title">Key Features & Benefits (பயன்கள்):</h3>
+                        <ul>
+                            <li>முகத்திற்கு உடனடிப் புத்துணர்ச்சியும் பொலிவும் தருகிறது.</li>
+                            <li>சரும ஈரப்பதத்தைத் தக்கவைத்து nourishes செய்கிறது.</li>
+                            <li>சுற்றுச்சூழல் அழுத்தத்திலிருந்து (Environmental stress) பாதுகாக்க ஆன்டிஆக்ஸிடன்ட்கள் உதவுகிறது.</li>
+                            <li>முகத்தில் உள்ள அதிகப்படியான எண்ணெய்ப் பசையைக் குறைக்கிறது.</li>
+                            <li>சருமத்தை மென்மையாக்கி ஒட்டுமொத்த அமைப்பை மேம்படுத்துகிறது.</li>
+                        </ul>
+
+                        <div class="details-box">
+                            <p><strong>How to Use (பயன்படுத்தும் முறை):</strong></p>
+                            <p>1. சிறிதளவு Spirulina Powder எடுக்கவும்.</p>
+                            <p>2. தண்ணீர் அல்லது Aloe Vera உடன் கலக்கவும்.</p>
+                            <p>3. முகத்தில் பூசி 10-15 நிமிடங்கள் விட்டு பின் கழுவவும்.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="price-weight" style="background: #2e7d32;">
+                    <div>Category: Skincare</div>
+                    <span>Natural</span>
+                </div>
             </div>
 
-            <div class="info-box" style="text-align: right;">
-                <h3>✨ பயன்பாட்டின் நன்மைகள்</h3>
-                <ul>
-                    <li>சருமத்தை சுத்தமாகவும் புதுமையாகவும் வைத்திருக்கும்.</li>
-                    <li>பருக்கள், கரும் புள்ளிகள் மற்றும் சரும அசத்தங்களைக் குறைக்க உதவும்.</li>
-                    <li>சருமத்திற்கு தேவையான ஈரப்பதத்தை (Moisture) தக்கவைக்கும்.</li>
-                    <li>அனைத்து சரும வகைகளுக்கும் ஏற்றது (100% இயற்கை மூலிகைச் சேர்க்கை).</li>
-                </ul>
+            <!-- 3. Spirulina Tablets -->
+            <div class="product-card">
+                <div>
+                    <div class="product-header">
+                        <h2>Spirulina Tablets</h2>
+                        <p>Food Supplement - No Medicine</p>
+                        <span class="badge">Complete Nutrition</span>
+                    </div>
+                    <div class="product-body">
+                        <p style="font-size: 0.95rem; margin-bottom: 1rem;">பெண்களின் ஆரோக்கியத்திற்கு இயற்கையின் பரிசு! முழு உடல் ஊட்டச்சத்துக்கான உணவுப் பொருள்.</p>
+                        
+                        <h3 class="section-title">Nutritional Elements (உள்ளடக்கம்):</h3>
+                        <ul>
+                            <li><strong>Vitamin A & B Complex:</strong> Eye glow, brain & energy.</li>
+                            <li><strong>Vitamin C & Iron:</strong> Immunity shield & blood circulation.</li>
+                            <li><strong>Calcium & Magnesium:</strong> Strong bones & muscle relaxation.</li>
+                            <li><strong>Phycocyanin & Protein:</strong> Deep detox, strength & repair.</li>
+                        </ul>
+
+                        <h3 class="section-title">Health Benefits (பயன்கள்):</h3>
+                        <ul>
+                            <li>தினசரி செயல்பாடுகளுக்குத் தேவையான இயற்கை ஆற்றலை வழங்குகிறது.</li>
+                            <li>உடலின் நோய் எதிர்ப்புத் திறனை அதிகரிக்க உதவுகிறது.</li>
+                            <li>எடை கட்டுப்பாடு மற்றும் மெட்டபாலிசத்திற்கு ஆதரவு தருகிறது.</li>
+                            <li>மன அழுத்தம் குறைக்க, நல்ல தூக்கத்திற்கும் மற்றும் மாதவிடாய் ஆரோக்கியத்திற்கு உதவுகிறது.</li>
+                        </ul>
+
+                        <div class="details-box">
+                            <p><strong>Highlights:</strong> 100% இயற்கை உணவுச் சத்து, எந்தச் செயற்கை நிறமும் இல்லை, முற்றிலும் பாதுகாப்பானது.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="price-weight" style="background: #1b4d3e;">
+                    <div>Type: Food Supplement</div>
+                    <span>Daily Health</span>
+                </div>
             </div>
+
         </div>
-
-        <!-- ================= ENGLISH SECTION ================= -->
-        <div id="lang-en" class="lang-section">
-            <div class="banner-card">
-                <h2 style="color: var(--primary-green); margin-top: 0;">Power of Nature's Essence</h2>
-                <h3 style="color: var(--accent-gold); font-size: 1.8rem; margin-top: -10px;">Spirulina Herbal Soap (50g - 590/=)</h3>
-                <img src="IMG-20261111-WA0010.jpg" alt="Spirulina Soap Poster 1" class="banner-img">
-                <img src="IMG-20261112-WA0093.jpg" alt="Spirulina Soap Poster 2" class="banner-img">
-            </div>
-
-            <div class="info-box" style="text-align: left;">
-                <h3>🌱 Key Ingredients</h3>
-                <ul>
-                    <li><strong>Spirulina Powder:</strong> Provides essential nutrients and brightens the skin.</li>
-                    <li><strong>Multani Mitti Powder:</strong> Removes excess oil and deep impurities.</li>
-                    <li><strong>Tea Tree Essential Oil:</strong> Helps prevent acne and blemishes.</li>
-                    <li><strong>Lavender Essential Oil:</strong> Softens and nourishes the skin.</li>
-                </ul>
-            </div>
-
-            <div class="info-box" style="text-align: left;">
-                <h3>✨ Benefits</h3>
-                <ul>
-                    <li>Keeps skin clean, fresh, and glowing.</li>
-                    <li>Reduces acne, dark spots, and skin blemishes.</li>
-                    <li>Locks in essential skin moisture.</li>
-                    <li>Suitable for all skin types (100% Natural Herbal Blend).</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- ================= SINHALA SECTION ================= -->
-        <div id="lang-si" class="lang-section">
-            <div class="banner-card">
-                <h2 style="color: var(--primary-green); margin-top: 0;">ස්වභාවධර්මයේ සැබෑ ශක්තිය</h2>
-                <h3 style="color: var(--accent-gold); font-size: 1.8rem; margin-top: -10px;">ස්පිරුලිනා ඖෂධීය සබන් (50g - 590/=)</h3>
-                <img src="IMG-20261111-WA0010.jpg" alt="Spirulina Soap Poster 1" class="banner-img">
-                <img src="IMG-20261112-WA0093.jpg" alt="Spirulina Soap Poster 2" class="banner-img">
-            </div>
-
-            <div class="info-box" style="text-align: left;">
-                <h3>🌱 ප්‍රධාන අමුද්‍රව්‍ය</h3>
-                <ul>
-                    <li><strong>ස්පිරුලිනා කුඩු (Spirulina Powder):</strong> සමට අවශ්‍ය පෝෂණය ලබා දී පැහැපත් කරයි.</li>
-                    <li><strong>මුල්තානි මිට්ටි (Multani Mitti):</strong> අධික තෙල් සහ අපද්‍රව්‍ය ඉවත් කරයි.</li>
-                    <li><strong>ටී ට්‍රී තෙල් (Tea Tree Oil):</strong> කුරුලෑ සහ කළු ලප අඩු කිරීමට උපකාරී වේ.</li>
-                    <li><strong>ලැවෙන්ඩර් තෙල් (Lavender Oil):</strong> සම මෘදු හා සිනිඳු කරයි.</li>
-                </ul>
-            </div>
-
-            <div class="info-box" style="text-align: left;">
-                <h3>✨ ප්‍රයෝජන</h3>
-                <ul>
-                    <li>සම පිරිසිදුව හා නැවුම්ව තබා ගනී.</li>
-                    <li>කුරුලෑ සහ සමේ දෝષ අඩු කරයි.</li>
-                    <li>සමෙහි තෙතමනය ආරක්ෂා කරයි.</li>
-                    <li>සියලුම සමේ වර්ග සඳහා සුදුසුයි (100% ස්වභාවිකයි).</li>
-                </ul>
-            </div>
-        </div>
-
-        <a href="tel:+94..." class="contact-btn">Order Now / இன்றே ஆர்டர் செய்யுங்கள்</a>
-
     </div>
 
-    <div class="footer">
-        <p>&copy; 2026 DS Herbal Care. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.</p>
-        <p>Nature's Beauty, Naturally!</p>
-    </div>
-
-    <script>
-        function switchLang(lang) {
-            document.querySelectorAll('.lang-section').forEach(sec => sec.classList.remove('active'));
-            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-            
-            document.getElementById('lang-' + lang).classList.add('active');
-            event.target.classList.add('active');
-        }
-    </script>
+    <footer>
+        <p>&copy; 2026 DS Herbal Care. All Rights Reserved.</p>
+        <p>Made in Sri Lanka | Contact: 0766119060</p>
+    </footer>
 
 </body>
 </html>
